@@ -40,6 +40,28 @@ public class TennisGameTest extends TestCase {
 	}
 	
 	
+	public void testPlayerOneScoresFirstThreeBalls(){
+		createCustomizedScore(3, 0);
+		String score = tennisGame.findScore();
+		assertEquals("Forty,Love", score);
+	}
+	
+	
+	public void testForDeuce() {
+		createCustomizedScore(3, 3);
+		
+		String score = tennisGame.findScore();
+		assertEquals("Deuce", score);		
+	}
+	
+	public void testForEqualButNotDuece() {
+		createCustomizedScore(2, 2);
+		
+		String score = tennisGame.findScore();
+		assertEquals("Thirty,Thirty", score);		
+	}
+	
+	
 	
 	//This method will be called when there is a need to create a customized input for the scores
 	public void createCustomizedScore(int playerOneWinningShots, int playerTwoWinningShots ) {

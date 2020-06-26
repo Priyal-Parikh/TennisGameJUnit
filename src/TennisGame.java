@@ -15,6 +15,10 @@ public class TennisGame {
 
 	// Method added to find the score at any given time
 	public String findScore() {
+		
+		if (checkIfDuece())
+			return "Deuce";
+		
 		return convertToReadableScore(player1_scrore) + "," + convertToReadableScore(player2_scrore);
 	}
 
@@ -55,6 +59,19 @@ public class TennisGame {
 		player2_scrore++;
 	}
 
+	
+	//The method added to check the duece
+	public boolean checkIfDuece() {
+		boolean ifDuece=false;
+		if(player1_scrore == player2_scrore)
+		{
+			if(player1_scrore > 0 || player2_scrore>0) 
+			{
+				ifDuece=true;
+			}
+		}
+		return ifDuece;
+	}
 	
 	// getters and setters
 	public int getPlayer1_scrore() {

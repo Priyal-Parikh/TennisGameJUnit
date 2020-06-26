@@ -63,12 +63,9 @@ public class TennisGame {
 	//The method added to check the duece
 	public boolean checkIfDuece() {
 		boolean ifDuece=false;
-		if(player1_scrore == player2_scrore)
+		if(player1_scrore >= 3 && player1_scrore == player2_scrore)
 		{
-			if(player1_scrore > 0 || player2_scrore>0) 
-			{
-				ifDuece=true;
-			}
+			ifDuece=true;		
 		}
 		return ifDuece;
 	}

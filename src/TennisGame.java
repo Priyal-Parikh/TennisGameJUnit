@@ -13,13 +13,11 @@ public class TennisGame {
 		this.player2_name = player2_name;
 	}
 
-	
-	// Method added to get the score at any gven time
-	public String calculateScore() {
+	// Method added to find the score at any given time
+	public String findScore() {
 		return convertToReadableScore(player1_scrore) + "," + convertToReadableScore(player2_scrore);
 	}
 
-	
 	// Method added to covert Score into readable format
 	public String convertToReadableScore(int score) {
 
@@ -47,8 +45,18 @@ public class TennisGame {
 		return scoreInWord;
 	}
 	
+
+	//In case of a winning shot, need to add a point in the score
+	public void scoreByFirstPlayer() {
+		player1_scrore++;
+	}
+
+	public void scoreBySecondPlayer() {
+		player2_scrore++;
+	}
+
 	
-	//getters and setters
+	// getters and setters
 	public int getPlayer1_scrore() {
 		return player1_scrore;
 	}

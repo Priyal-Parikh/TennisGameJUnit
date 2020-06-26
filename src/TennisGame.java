@@ -15,10 +15,15 @@ public class TennisGame {
 
 	// Method added to find the score at any given time
 	public String findScore() {
-		
-		if (checkIfDuece())
+
+		if (checkIfDuece()) {
 			return "Deuce";
-		
+		}
+
+		if (checkIfPlayerHasAdvantage()) {
+			return "Advantage " + playerWithHigherScore();
+		}
+
 		return convertToReadableScore(player1_scrore) + "," + convertToReadableScore(player2_scrore);
 	}
 
@@ -48,9 +53,8 @@ public class TennisGame {
 
 		return scoreInWord;
 	}
-	
 
-	//In case of a winning shot, need to add a point in the score
+	// In case of a winning shot, need to add a point in the score
 	public void scoreByFirstPlayer() {
 		player1_scrore++;
 	}
@@ -59,17 +63,39 @@ public class TennisGame {
 		player2_scrore++;
 	}
 
-	
-	//The method added to check the duece
+	// The method added to check the duece
 	public boolean checkIfDuece() {
-		boolean ifDuece=false;
-		if(player1_scrore >= 3 && player1_scrore == player2_scrore)
-		{
-			ifDuece=true;		
+		boolean ifDuece = false;
+
+		if (player1_scrore >= 3 && player1_scrore == player2_scrore) {
+			ifDuece = true;
 		}
 		return ifDuece;
 	}
-	
+
+	// Method will check if player has an advantage
+	public boolean checkIfPlayerHasAdvantage() {
+		if (player1_scrore >= 4 && player1_scrore == player2_scrore + 1) {
+			// player 1 has an advantage
+			return true;
+		} else if (player2_scrore >= 4 && player2_scrore == player1_scrore + 1) {
+			// player 2 has an advantage
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+
+	// Method will return the player with higher score at any given time
+	public String playerWithHigherScore() {
+		if (player1_scrore > player2_scrore) {
+			return player1_name;
+		} else {
+			return player2_name;
+		}
+	}
+
 	// getters and setters
 	public int getPlayer1_scrore() {
 		return player1_scrore;

@@ -24,6 +24,11 @@ public class TennisGame {
 			return "Advantage " + playerWithHigherScore();
 		}
 
+		if (checkIfAnyPlayerisWinner()) {
+			return playerWithHigherScore() + " is winner";
+		}
+
+		//System.out.println(convertToReadableScore(player1_scrore));
 		return convertToReadableScore(player1_scrore) + "," + convertToReadableScore(player2_scrore);
 	}
 
@@ -93,6 +98,19 @@ public class TennisGame {
 			return player1_name;
 		} else {
 			return player2_name;
+		}
+	}
+
+	// Method will decide if any layer is winner or not
+
+	public boolean checkIfAnyPlayerisWinner() {
+
+		if (player1_scrore >= 4 && player1_scrore >= player2_scrore + 2) {
+			return true;
+		} else if (player2_scrore >= 4 && player2_scrore >= player1_scrore + 2) {
+			return true;
+		} else {
+			return false;
 		}
 	}
 

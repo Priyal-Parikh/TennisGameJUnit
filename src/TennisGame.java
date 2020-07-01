@@ -27,15 +27,17 @@ public class TennisGame {
 		if (checkIfAnyPlayerisWinner()) {
 			return playerWithHigherScore() + " is winner";
 		}
+		
+		if(player1_scrore == player2_scrore) {
+			return convertToReadableScore(player2_scrore) + " all";
+		}
 
-		//System.out.println(convertToReadableScore(player1_scrore));
 		return convertToReadableScore(player1_scrore) + "," + convertToReadableScore(player2_scrore);
 	}
 
 	// Method added to covert Score into readable format
 	public String convertToReadableScore(int score) {
 
-		// System.out.println("Score provided is:"+score);
 		String scoreInWord = "";
 
 		switch (score) {
@@ -102,7 +104,6 @@ public class TennisGame {
 	}
 
 	// Method will decide if any layer is winner or not
-
 	public boolean checkIfAnyPlayerisWinner() {
 
 		if (player1_scrore >= 4 && player1_scrore >= player2_scrore + 2) {
@@ -113,38 +114,4 @@ public class TennisGame {
 			return false;
 		}
 	}
-
-	// getters and setters
-	public int getPlayer1_scrore() {
-		return player1_scrore;
-	}
-
-	public void setPlayer1_scrore(int player1_scrore) {
-		this.player1_scrore = player1_scrore;
-	}
-
-	public int getPlayer2_scrore() {
-		return player2_scrore;
-	}
-
-	public void setPlayer2_scrore(int player2_scrore) {
-		this.player2_scrore = player2_scrore;
-	}
-
-	public String getPlayer1_name() {
-		return player1_name;
-	}
-
-	public void setPlayer1_name(String player1_name) {
-		this.player1_name = player1_name;
-	}
-
-	public String getPlayer2_name() {
-		return player2_name;
-	}
-
-	public void setPlayer2_name(String player2_name) {
-		this.player2_name = player2_name;
-	}
-
 }

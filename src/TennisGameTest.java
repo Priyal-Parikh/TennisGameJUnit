@@ -8,7 +8,7 @@ public class TennisGameTest extends TestCase {
 	public void testNewGameReturnLoveAll() {
 		String score = tennisGame.findScore();
 
-		assertEquals("Love,Love", score);
+		assertEquals("Love all", score);
 	}
 
 	
@@ -32,7 +32,7 @@ public class TennisGameTest extends TestCase {
 		tennisGame.scoreBySecondPlayer();
 
 		String score = tennisGame.findScore();
-		assertEquals("Fifteen,Fifteen", score);
+		assertEquals("Fifteen all", score);
 	}
 
 	public void testPlayerTwoScoresFirstTwoBalls() {
@@ -62,7 +62,7 @@ public class TennisGameTest extends TestCase {
 		createCustomizedScore(2, 2);
 
 		String score = tennisGame.findScore();
-		assertEquals("Thirty,Thirty", score);
+		assertEquals("Thirty all", score);
 	}
 
 	public void testPlayersAreAtDuceAtScore4() {
